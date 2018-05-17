@@ -20,9 +20,10 @@ interface RetryableJobInterface extends JobInterface
     public function getTtr();
 
     /**
+     * @param $id  queue id
      * @param int $attempt number
      * @param \Exception|\Throwable $error from last execute of the job
      * @return bool
      */
-    public function canRetry($attempt, $error);
+    public function canRetry($id, $attempt, $error);
 }

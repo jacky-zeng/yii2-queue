@@ -211,7 +211,7 @@ abstract class Queue extends Component
         }
 
         try {
-            $event->job->execute($this);
+            $event->job->execute($id, $this);
         } catch (\Exception $error) {
             return $this->handleError($event->id, $event->job, $event->ttr, $event->attempt, $error);
         } catch (\Throwable $error) {
@@ -240,7 +240,7 @@ abstract class Queue extends Component
             'attempt' => $attempt,
             'error' => $error,
             'retry' => $job instanceof RetryableJobInterface
-                ? $job->canRetry($attempt, $error)
+                ? $job->canRetry($id, $attempt, $error)
                 : $attempt < $this->attempts,
         ]);
         $this->trigger(self::EVENT_AFTER_ERROR, $event);

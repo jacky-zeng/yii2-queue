@@ -15,7 +15,8 @@ namespace yii\queue;
 interface JobInterface
 {
     /**
+     * @param $id  queue id
      * @param Queue $queue which pushed and is handling the job
      */
-    public function execute($queue);
+    public function execute($id, $queue);
 }
