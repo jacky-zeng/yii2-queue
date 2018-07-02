@@ -11,4 +11,4 @@
 
 安装我的版本 composer require "jacky-zeng/yii2-queue:2.0.3" --prefer-source
 
-[官方github](https://github.com/yiisoft/yii2-queue)
+[如何使用](https://github.com/jacky-zeng/my_yii2)
